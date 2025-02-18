@@ -26,5 +26,27 @@
         Your browser does not support the audio element.
       </audio>
     </div>
+    <!-- Ocean Sound -->
+    <div class="sound" id="sound-ocean">
+      <h3>Ocean Waves</h3>
+      <button onclick="toggleSound('ocean')">Play</button>
+      <input type="range" id="volume-ocean" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('ocean', this.value)">
+      <audio id="audio-ocean" loop>
+        <source src="ocean.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <!-- Mountain Sound -->
+    <div class="sound" id="sound-mountain">
+      <h3>Mountain Breeze</h3>
+      <button onclick="toggleSound('mountain')">Play</button>
+      <input type="range" id="volume-mountain" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('mountain', this.value)">
+      <audio id="audio-mountain" loop>
+        <source src="mountain.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
   </body>
 </html>
