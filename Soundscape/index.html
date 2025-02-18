@@ -15,5 +15,16 @@
     <h1>A Gift of Serenity</h1>
   <p>Welcome to your personalized nature soundscape experience. Enjoy a glimpse of the natural world:</p>
   <img src="soundscape.jpg" alt="soundscape image"r>
+  <div class="sound-container">
+    <!-- Forest Sound -->
+    <div class="sound" id="sound-forest">
+      <h3>Forest Sounds</h3>
+      <button onclick="toggleSound('forest')">Play</button>
+      <input type="range" id="volume-forest" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('forest', this.value)">
+      <audio id="audio-forest" loop>
+        <source src="forest.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
   </body>
 </html>
