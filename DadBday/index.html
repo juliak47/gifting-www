@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>You are Dad, right?</title>
+    <meta name="description" content="A special page for Dad">
+    <link rel="stylesheet" href="assets/css/finalstyle.css">
+  </head>
+  <body>
+    <div class="step" id="1">
+      <p>You are Dad, right?</p>
+      <div class="buttons">
+        <a class="button" href="#2">Yes!</a>
+        <a class="button" href="#no-1">No…</a>
+      </div>
+    </div>
+
+    <div class="step" id="no-1">
+      <p>Sorry. This website is only for Dad.</p>
+      <div class="buttons">
+        <a class="button" href="#1">Retry</a>
+      </div>
+    </div>
+
+    <div class="step" id="2">
+      <p>Oh yeah? Prove it. Where do you live?</p>
+      <div class="buttons">
+        <a class="button" href="#3">Japan</a>
+        <a class="button" href="#no-usa">USA</a>
+        <a class="button" href="#no-france">France</a>
+      </div>
+    </div>
+
+    <div class="step" id="no-usa">
+      <p>This website is only for Dad who lives in Japan</p>
+      <div class="single-photo" id="photo-usa">
+          <img src="assets/usa.jpg" alt="USA">
+      </div>
+      <div class="buttons">
+        <a class="button" href="#2">Retry</a>
+      </div>
+    </div>
+    
+    <div class="step" id="no-france">
+      <p>This website is only for Dad who lives in Japan</p>
+      <div class="single-photo" id="photo-france">
+          <img src="assets/france.jpg" alt="France">
+      </div>
+      <div class="buttons">
+        <a class="button" href="#2">Retry</a>
+      </div>
+    </div>
+
+    <div class="step" id="3">
+      <p>I'm still not convinced. Are you the dad that loves wine so much he travels to drink it?</p>
+      <div class="buttons">
+        <a class="button" href="#4">Yes!</a>
+        <a class="button" href="#no-3">No…</a>
+      </div>
+      <div class="single-photo" id="photo-japan">
+          <img src="assets/japan.jpg" alt="Japan">
+      </div>
+    </div>
+
+    <div class="step" id="no-3">
+      <p>Hmm… This website is only for the Dad who loves wine.</p>
+      <div class="buttons">
+        <a class="button" href="#3">Retry</a>
+      </div>
+      <div class="single-photo" id="photo-wine2">
+          <img src="assets/wine2.jpg" alt="Wine2">
+      </div>
+    </div>
+
+    <div class="step" id="4">
+        <div class="single-photo" id="photo-wine">
+            <img src="assets/wine.jpg" alt="Wine">
+        </div>
+        <p>Are you sure? Are you the Dad who can set up a camping tent in seconds flat, like a true camping ninja?</p>
+        <div class="buttons">
+          <a class="button" href="#5">That’s right, I’m a tent-setting pro!</a>
+          <a class="button" href="#no-camp">Not really...</a>
+        </div>
+      </div>
+  
+      <div class="step" id="no-camp">
+        <p>Hmm... this page is reserved for the Dad who can set up a tent so fast it’s like magic!</p>
+        <div class="single-photo" id="photo-camp2">
+            <img src="assets/camp2.jpg" alt="Camping2">
+        </div>
+        <div class="buttons">
+          <a class="button" href="#4">Retry</a>
+        </div>
+      </div>
+
+      <div class="step" id="5">
+        <div class="single-photo" id="photo-camp">
+            <img src="assets/camp.jpg" alt="Camping">
+        </div>
+        <p>Hmm... Are you the Dad that can hit the driver as far as Julia?</p>
+        <div class="buttons">
+          <a class="button" href="#6">Yup that's me!</a>
+          <a class="button" href="#no-golf">Nope...</a>
+        </div>
+      </div>
+  
+      <div class="step" id="no-golf">
+        <p>This page is strictly for Dad that plays golf!</p>
+        <div class="single-photo" id="photo-golf">
+            <img src="assets/golf.jpg" alt="Golf">
+        </div>
+        <div class="buttons">
+          <a class="button" href="#5">Retry</a>
+        </div>
+      </div>
+      
+
+    <div class="step" id="6">
+      <p> Omg it is you! Hi Dad. I love you &#10084; Today is your birthday right? </p>
+      <div class="single-photo" id="photo-dad">
+          <img src="assets/dad.jpg" alt="dad">
+      </div>
+      <div class="buttons">
+        <a class="button" href="#birthday-check">Yes!</a>
+        <a class="button" href="#no-5">No…</a>
+      </div>
+    </div>
+
+    <div class="step" id="no-5">
+      <p>Darn! This website is only for your birthday. Come back on Feb. 4th!</p>
+      <div class="buttons">
+        <a class="button" href="#5">Retry</a>
+      </div>
+    </div>
+
+    <!-- Birthday Check Section -->
+    <div class="step" id="birthday-check">
+      <p>Just to confirm, it is your birthday right? (It's February 24th)</p>
+      <div class="buttons">
+        <a class="button" href="#birthday-yes-step">Yes, it's my birthday!</a>
+        <a class="button" href="#birthday-no">No, it's not my birthday</a>
+      </div>
+    </div>
+
+    <!-- If it's not the birthday -->
+    <div class="step" id="birthday-no">
+      <p>Sorry! This website is only for Dad on his special day, February 24th.</p>
+      <div class="buttons">
+        <a class="button" href="#birthday-check">Try Again</a>
+      </div>
+    </div>
+
+    <!-- If it is the birthday -->
+    <div class="step" id="birthday-yes-step">
+      <p class="birthday-message">HAPPY BIRTHDAY DAD! Please enjoy these photos of the people who all deeply love you!</p>
+      
+      <div class="photo-book">
+        <div class="photo-page" id="photo-1">
+          <img src="assets/dad1.jpg" alt="dad">
+        </div>
+        <div class="photo-page" id="photo-2">
+          <img src="assets/family.jpg" alt="Family">
+        </div>
+        <div class="photo-page" id="photo-3">
+          <img src="assets/momdad.jpg" alt="mom and dad">
+        </div>
+        <div class="photo-page" id="photo-4">
+          <img src="assets/family2.jpg" alt="Family">
+        </div>
+        <div class="photo-page" id="photo-5">
+          <img src="assets/family3.jpg" alt="Family">
+        </div>
+        <div class="photo-page" id="photo-6">
+          <img src="assets/dadme.jpg" alt="dad and me">
+        </div>
+        <div class="photo-page" id="photo-6">
+            <img src="assets/gram.jpg" alt="gramma">
+        </div>
+        <div class="photo-page" id="photo-7">
+          <img src="assets/momdad2.jpg" alt="mom and dad">
+        </div>
+        <div class="photo-page" id="photo-8">
+          <img src="assets/sophie.jpg" alt="sophie">
+        </div>
+        <div class="photo-page" id="photo-8">
+            <img src="assets/friends.jpg" alt="friends">
+        </div>
+        <div class="photo-page" id="photo-8">
+            <img src="assets/golf2.jpg" alt="dad and me">
+        </div>
+        <div class="photo-page" id="photo-8">
+            <img src="assets/friends2.jpg" alt="friends2">
+        </div>
+        <div class="photo-page" id="photo-8">
+            <img src="assets/family4.jpg" alt="family4">
+        </div>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="photo-navigation">
+        <button class="button" id="prev-btn">Previous</button>
+        <button class="button" id="next-btn">Next</button>
+      </div>
+    </div>
+    
+    <!-- Audio element without autoplay -->
+    <audio id="background-audio" loop>
+        <source src="assets/dad.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+  
+      <!-- Toggle button for audio -->
+      <button id="toggle-music" class="button">Play Music</button>
+  
+      <!-- Place your script at the end of the body -->
+      <script>
+        document.getElementById("toggle-music").addEventListener("click", function () {
+          var audio = document.getElementById("background-audio");
+          if (audio.paused) {
+            audio.play().then(() => {
+              this.textContent = "Pause Music";
+            }).catch(error => {
+              console.error("Audio play failed:", error);
+            });
+          } else {
+            audio.pause();
+            this.textContent = "Play Music";
+          }
+        });
+      </script>
+  
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

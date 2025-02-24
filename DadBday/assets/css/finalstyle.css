@@ -1,0 +1,133 @@
+/* Import Montserrat for a chic modern look */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Soft pastel gradient */
+  text-align: center;
+  color: #2c3e50;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Step Sections */
+.step {
+  display: none;
+  padding: 30px 40px;
+  background: rgba(255, 255, 255, 0.8); /* Light, almost opaque background */
+  border: 2px solid rgba(241, 196, 15, 0.8); /* Subtle gold border */
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin: 40px auto;
+  max-width: 700px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.footer-message {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #7f8c8d;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Show the targeted step */
+.step:target {
+  display: block;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 10px;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(45deg, #f39c12, #e67e22);
+}
+
+/* Single Photo Display */
+.single-photo {
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  overflow: hidden;
+  border: 2px solid rgba(241, 196, 15, 0.8); /* Festive gold border */
+  border-radius: 8px;
+}
+
+.single-photo img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Photo Slideshow */
+.photo-book {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.photo-page {
+  display: none;
+}
+
+.photo-page img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Show one photo at a time */
+.photo-page:first-child {
+  display: block;
+}
+
+/* Navigation Buttons */
+.photo-navigation {
+  margin-top: 20px;
+}
+
+#prev-btn, #next-btn {
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  margin: 0 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#prev-btn:hover, #next-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(45deg, #f39c12, #e67e22);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
