@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
           let month = today.getMonth() + 1; // JS months are 0-based (January = 0)
           let day = today.getDate();
   
-          if (month !== 2 || day !== 23) { // If NOT February 24th, stop
+          if (month !== 2 || day !== 24) { // If NOT February 24th, stop
             alert("🚫 Today is NOT February 4th! You cannot proceed.");
             return; // **Stops execution completely**
           }
