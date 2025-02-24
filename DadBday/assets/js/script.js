@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
           let day = today.getDate();
   
           if (month !== 2 || day !== 24) { // If NOT February 24th, stop
-            alert("🚫 Today is NOT February 4th! You cannot proceed.");
+            alert("🚫 Today is NOT February 24th! You cannot proceed.");
             return; // **Stops execution completely**
           }
         }
