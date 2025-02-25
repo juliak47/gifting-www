@@ -3,50 +3,110 @@
   <head>
     <title>A Gift of Serenity: Craft Your Personalized Nature Soundscape</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <style>
-      /* You can put any CSS styles here */
-      img {
-        max-width: 100%;
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>A Gift of Serenity</h1>
-  <p>Welcome to your personalized nature soundscape experience. Enjoy a glimpse of the natural world:</p>
-  <img src="soundscape.jpg" alt="soundscape image"r>
-  <div class="sound-container">
-    <!-- Forest Sound -->
-    <div class="sound" id="sound-forest">
-      <h3>Forest Sounds</h3>
-      <button onclick="toggleSound('forest')">Play</button>
-      <input type="range" id="volume-forest" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('forest', this.value)">
-      <audio id="audio-forest" loop>
-        <source src="forest.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-    <!-- Ocean Sound -->
-    <div class="sound" id="sound-ocean">
-      <h3>Ocean Waves</h3>
-      <button onclick="toggleSound('ocean')">Play</button>
-      <input type="range" id="volume-ocean" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('ocean', this.value)">
-      <audio id="audio-ocean" loop>
-        <source src="ocean.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+    <!-- Welcome Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h2>Welcome to Your Nature Soundscape</h2>
+        <p>Immerse yourself in soothing sounds from nature. Click anywhere to begin your journey.</p>
+      </div>
     </div>
 
-    <!-- Mountain Sound -->
-    <div class="sound" id="sound-mountain">
-      <h3>Mountain Breeze</h3>
-      <button onclick="toggleSound('mountain')">Play</button>
-      <input type="range" id="volume-mountain" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('mountain', this.value)">
-      <audio id="audio-mountain" loop>
-        <source src="mountain.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-  </div>
+    <header>
+      <h1>A Gift of Serenity</h1>
+      <p>Craft your personalized nature soundscape experience and escape into tranquility.</p>
+    </header>
+    
+    <main>
+      <img src="soundscape.jpg" alt="Serene nature soundscape image">
+      <div class="sound-container">
+        <!-- Forest Sound -->
+        <div class="sound" id="sound-forest">
+          <h3>Forest Sounds</h3>
+          <button onclick="toggleSound('forest')" class="sound-button">► Play</button>
+          <input type="range" id="volume-forest" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('forest', this.value)">
+          <audio id="audio-forest" loop>
+            <source src="forest.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <!-- Ocean Sound -->
+        <div class="sound" id="sound-ocean">
+          <h3>Ocean Waves</h3>
+          <button onclick="toggleSound('ocean')" class="sound-button">► Play</button>
+          <input type="range" id="volume-ocean" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('ocean', this.value)">
+          <audio id="audio-ocean" loop>
+            <source src="ocean.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <!-- Rain Sound -->
+        <div class="sound" id="sound-rain">
+          <h3>Rain</h3>
+          <button onclick="toggleSound('rain')" class="sound-button">► Play</button>
+          <input type="range" id="volume-rain" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('rain', this.value)">
+          <audio id="audio-rain" loop>
+            <source src="rain.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+      <!-- Additional Controls -->
+      <div class="controls">
+        <button onclick="stopAll()" class="stop-all">Stop All Sounds</button>
+      </div>
+    </main>
+    
+    <script>
+      // Hide modal on click
+      document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById("modal");
+        modal.addEventListener("click", function() {
+          modal.style.display = "none";
+        });
+      });
+
+      // Toggle play/pause for a given sound track
+      function toggleSound(soundId) {
+        var audio = document.getElementById('audio-' + soundId);
+        var container = document.getElementById('sound-' + soundId);
+        var button = container.getElementsByTagName('button')[0];
+        
+        if (audio.paused) {
+          audio.play();
+          button.textContent = '❚❚ Pause';
+          container.classList.add('playing');
+        } else {
+          audio.pause();
+          button.textContent = '► Play';
+          container.classList.remove('playing');
+        }
+      }
+      
+      // Set the volume for a given sound track
+      function setVolume(soundId, volume) {
+        var audio = document.getElementById('audio-' + soundId);
+        audio.volume = volume;
+      }
+      
+      // Stop all sounds and reset buttons
+      function stopAll() {
+        var sounds = document.querySelectorAll('.sound');
+        sounds.forEach(function(soundDiv) {
+          var soundId = soundDiv.id.replace('sound-', '');
+          var audio = document.getElementById('audio-' + soundId);
+          audio.pause();
+          audio.currentTime = 0;
+          var button = soundDiv.getElementsByTagName('button')[0];
+          button.textContent = '► Play';
+          soundDiv.classList.remove('playing');
+        });
+      }
+    </script>
   </body>
 </html>
