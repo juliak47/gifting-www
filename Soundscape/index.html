@@ -1,156 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Enhanced Nature Soundscape</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <title>A Gift of Serenity: Craft Your Personalized Nature Soundscape</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="styles.css">
     <style>
-      /* Global Styles */
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Roboto', sans-serif;
-        background: linear-gradient(135deg, #74ebd5, #9face6);
-        color: #333;
-        transition: background 0.5s, color 0.5s;
-      }
-      body.dark-mode {
-        background: #333;
-        color: #f4f4f4;
-      }
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-      }
-      header h1 {
-        margin: 0;
-      }
-      header button {
-        padding: 10px 20px;
-        background: #3498db;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        cursor: pointer;
-      }
-      section {
-        padding: 20px;
-        margin: 20px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 8px;
-      }
-      body.dark-mode section {
-        background: rgba(50, 50, 50, 0.8);
-      }
-      /* Interactive Map */
-      #interactive-map {
-        text-align: center;
-      }
-      .map-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-      }
-      .map-btn {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background: #2ecc71;
-        color: #fff;
-        cursor: pointer;
-        transition: transform 0.3s;
-      }
-      .map-btn:hover {
-        transform: scale(1.1);
-      }
-      /* Sound Sections */
-      .sound {
-        margin-bottom: 20px;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        transition: transform 0.3s;
-      }
-      .sound.playing {
-        background: #e0f7fa;
-        transform: scale(1.02);
-      }
-      .sound h3 {
-        margin: 0 0 10px;
-      }
-      .sound-button {
-        padding: 10px 20px;
-        background: #3498db;
-        color: #fff;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        margin-bottom: 10px;
-      }
-      input[type="range"] {
-        width: 100%;
-      }
-      /* Audio Visualizer */
-      #audioCanvas {
-        display: block;
-        margin: 0 auto;
-        background: #000;
-        border: 1px solid #ccc;
-      }
-      /* Timer Section */
-      #timer-section input[type="number"] {
-        padding: 10px;
-        width: 100px;
-        margin-right: 10px;
-      }
-      #timer-section button {
-        padding: 10px 20px;
-        background: #e67e22;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        cursor: pointer;
-      }
-      /* Custom Mix Section */
-      #mix-section button {
-        padding: 10px 20px;
-        background: #9b59b6;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        cursor: pointer;
-        margin-right: 10px;
+      /* You can put any CSS styles here */
+      img {
+        max-width: 100%;
       }
     </style>
   </head>
   <body>
-    <!-- Header with Dark Mode Toggle -->
-    <header>
-      <h1>Enhanced Nature Soundscape</h1>
-      <button id="darkModeToggle">Toggle Dark Mode</button>
-    </header>
-    
-    <!-- Interactive Map -->
-    <section id="interactive-map">
-      <h2>Select a Nature Soundscape</h2>
-      <div class="map-buttons">
-        <button class="map-btn" data-sound="forest">Forest</button>
-        <button class="map-btn" data-sound="ocean">Ocean</button>
-        <button class="map-btn" data-sound="rain">Rain</button>
-      </div>
-    </section>
-    
-    <!-- Audio Players Section -->
-    <section id="sound-section">
+    <h1>A Gift of Serenity</h1>
+    <p>Welcome to your personalized nature soundscape experience. Enjoy a glimpse of the natural world:</p>
+    <!-- Fixed stray "r" below -->
+    <img src="soundscape.jpg" alt="soundscape image">
+    <div class="sound-container">
       <!-- Forest Sound -->
       <div class="sound" id="sound-forest">
         <h3>Forest Sounds</h3>
-        <button onclick="toggleSound('forest')" class="sound-button">► Play</button>
+        <button onclick="toggleSound('forest')">Play</button>
         <input type="range" id="volume-forest" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('forest', this.value)">
         <audio id="audio-forest" loop>
           <source src="forest.mp3" type="audio/mpeg">
@@ -160,217 +31,123 @@
       <!-- Ocean Sound -->
       <div class="sound" id="sound-ocean">
         <h3>Ocean Waves</h3>
-        <button onclick="toggleSound('ocean')" class="sound-button">► Play</button>
+        <button onclick="toggleSound('ocean')">Play</button>
         <input type="range" id="volume-ocean" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('ocean', this.value)">
         <audio id="audio-ocean" loop>
           <source src="ocean.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
       </div>
-      <!-- Rain Sound -->
+      <!-- Mountain Sound -->
       <div class="sound" id="sound-rain">
         <h3>Rain</h3>
-        <button onclick="toggleSound('rain')" class="sound-button">► Play</button>
+        <button onclick="toggleSound('rain')">Play</button>
         <input type="range" id="volume-rain" min="0" max="1" step="0.01" value="0.5" onchange="setVolume('rain', this.value)">
         <audio id="audio-rain" loop>
           <source src="rain.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
       </div>
-    </section>
-    
-    <!-- Audio Visualizer -->
-    <section id="visualizer-section">
-      <h2>Audio Visualizer</h2>
-      <canvas id="audioCanvas" width="800" height="200"></canvas>
-    </section>
-    
-    <!-- Guided Meditation Timer -->
-    <section id="timer-section">
-      <h2>Guided Meditation Timer</h2>
-      <input type="number" id="timerInput" placeholder="Enter minutes" min="1">
-      <button id="startTimer">Start Timer</button>
-      <div id="timerDisplay"></div>
-    </section>
-    
-    <!-- Custom Mix Save/Load -->
-    <section id="mix-section">
-      <h2>Custom Mix</h2>
-      <button id="saveMix">Save Mix</button>
-      <button id="loadMix">Load Mix</button>
-    </section>
+    </div>
     
     <script>
-      // --- Dark Mode Toggle ---
-      const darkModeToggle = document.getElementById('darkModeToggle');
-      darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-      });
-      
-      // --- Toggle Sound Play/Pause ---
+      // Toggle play/pause for a given sound track
       function toggleSound(soundId) {
-        const audio = document.getElementById('audio-' + soundId);
-        const container = document.getElementById('sound-' + soundId);
-        const button = container.querySelector('.sound-button');
+        // Get the audio element by constructing the id
+        var audio = document.getElementById('audio-' + soundId);
+        // Find the first button inside the corresponding sound div
+        var container = document.getElementById('sound-' + soundId);
+        var button = container.getElementsByTagName('button')[0];
+        
         if (audio.paused) {
           audio.play();
-          button.textContent = '❚❚ Pause';
-          container.classList.add('playing');
-          // Start visualizer for this audio
-          initVisualizer(audio);
+          button.textContent = 'Pause';
         } else {
           audio.pause();
-          button.textContent = '► Play';
-          container.classList.remove('playing');
+          button.textContent = 'Play';
         }
       }
       
-      // --- Set Volume ---
+      // Set the volume for a given sound track
       function setVolume(soundId, volume) {
-        const audio = document.getElementById('audio-' + soundId);
+        var audio = document.getElementById('audio-' + soundId);
         audio.volume = volume;
       }
-      
-      // --- Interactive Map (Scroll and Toggle Audio) ---
-      const mapButtons = document.querySelectorAll('.map-btn');
-      mapButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const soundType = button.getAttribute('data-sound');
-          const soundSection = document.getElementById('sound-' + soundType);
-          soundSection.scrollIntoView({behavior: "smooth"});
-          // Toggle the audio by simulating a click on the play button:
-          const playButton = soundSection.querySelector('.sound-button');
-          if (playButton) {
-            playButton.click();
-          }
-        });
-      });
-      
-      // --- Audio Visualizer using Web Audio API ---
-      let audioCtx, analyser, dataArray, animationId;
-      const canvas = document.getElementById('audioCanvas');
-      const canvasCtx = canvas.getContext('2d');
-      
-      // Initialize or reuse the AudioContext and attach an analyser.
-      // Create a media element source only once per audio element.
-      function initVisualizer(audioElement) {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        // Ensure the context is running (some browsers require a user gesture)
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-      
-        // Create and store a source node on the audio element if not already created
-        if (!audioElement.sourceNode) {
-          audioElement.sourceNode = audioCtx.createMediaElementSource(audioElement);
-        }
-        
-        // Cancel any existing animation loop
-        if (animationId) {
-          cancelAnimationFrame(animationId);
-        }
-      
-        // Create a new analyser node with a larger FFT size for more bars
-        analyser = audioCtx.createAnalyser();
-        analyser.fftSize = 512;
-        const bufferLength = analyser.frequencyBinCount;
-        dataArray = new Uint8Array(bufferLength);
-      
-        // Disconnect the source node if already connected and reconnect it
-        try {
-          audioElement.sourceNode.disconnect();
-        } catch(e) {
-          // Ignore errors if not connected yet.
-        }
-        audioElement.sourceNode.connect(analyser);
-        analyser.connect(audioCtx.destination);
-      
-        drawVisualizer();
-      }
-      
-      // Updated drawVisualizer function with amplified bar heights and a black background
-      function drawVisualizer() {
-        if (!analyser) return;
-        const bufferLength = analyser.frequencyBinCount;
-        analyser.getByteFrequencyData(dataArray);
-        // Fill canvas background
-        canvasCtx.fillStyle = '#000';
-        canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-      
-        const barWidth = canvas.width / bufferLength;
-        let x = 0;
-        for (let i = 0; i < bufferLength; i++) {
-          // Amplify the bar height
-          let barHeight = dataArray[i] * 3;
-          canvasCtx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
-          canvasCtx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
-          x += barWidth + 1;
-        }
-        animationId = requestAnimationFrame(drawVisualizer);
-      }
-      
-      // --- Guided Meditation Timer ---
-      let timerInterval;
-      document.getElementById('startTimer').addEventListener('click', () => {
-        const minutes = parseInt(document.getElementById('timerInput').value);
-        if (isNaN(minutes) || minutes <= 0) return;
-        let timeLeft = minutes * 60;
-        const display = document.getElementById('timerDisplay');
-        clearInterval(timerInterval);
-        timerInterval = setInterval(() => {
-          const m = Math.floor(timeLeft / 60);
-          const s = timeLeft % 60;
-          display.textContent = m + "m " + s + "s remaining";
-          if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            stopAllAudio();
-            display.textContent = "Time's up!";
-          }
-          timeLeft--;
-        }, 1000);
-      });
-      
-      // --- Stop All Audio ---
-      function stopAllAudio() {
-        const audios = document.querySelectorAll('audio');
-        audios.forEach(audio => {
-          audio.pause();
-          audio.currentTime = 0;
-          const soundId = audio.id.replace('audio-', '');
-          const container = document.getElementById('sound-' + soundId);
-          const button = container.querySelector('.sound-button');
-          button.textContent = '► Play';
-          container.classList.remove('playing');
-        });
-      }
-      
-      // --- Custom Mix Save/Load ---
-      document.getElementById('saveMix').addEventListener('click', () => {
-        const mix = {
-          forest: document.getElementById('volume-forest').value,
-          ocean: document.getElementById('volume-ocean').value,
-          rain: document.getElementById('volume-rain').value,
-        };
-        localStorage.setItem('customMix', JSON.stringify(mix));
-        alert('Mix saved!');
-      });
-      
-      document.getElementById('loadMix').addEventListener('click', () => {
-        const mix = JSON.parse(localStorage.getItem('customMix'));
-        if (mix) {
-          document.getElementById('volume-forest').value = mix.forest;
-          document.getElementById('volume-ocean').value = mix.ocean;
-          document.getElementById('volume-rain').value = mix.rain;
-          setVolume('forest', mix.forest);
-          setVolume('ocean', mix.ocean);
-          setVolume('rain', mix.rain);
-          alert('Mix loaded!');
-        } else {
-          alert('No mix saved!');
-        }
-      });
     </script>
   </body>
 </html>
+
+styles.css:
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  /* Headings and Paragraphs */
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Center the image */
+  img {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+  }
+  
+  /* Sound Container */
+  .sound-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Individual Sound Blocks */
+  .sound {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .sound:last-child {
+    border-bottom: none;
+  }
+  
+  .sound h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 10px 20px;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background: #2980b9;
+  }
+  
+  /* Range Input Styling */
+  input[type="range"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
