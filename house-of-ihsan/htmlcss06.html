@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>House of Ihsan – Variation 5</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Courier New", monospace;
+        background: linear-gradient(to right, #e0f7fa, #fff);
+        color: #333;
+      }
+      header {
+        background: #00796b;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+        position: relative;
+      }
+      header h1 {
+        font-size: 2.5em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+      .main-content {
+        display: flex;
+        flex-direction: row;
+        padding: 20px;
+      }
+      .sidebar {
+        flex: 0 0 200px;
+        background: #c8e6c9;
+        padding: 15px;
+        margin-right: 20px;
+        position: relative;
+      }
+      .sidebar a {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .content {
+        flex: 1;
+      }
+      .content section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+      }
+
+      .menu-table {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        border: 1px solid #444;
+      }
+      .menu-table div {
+        padding: 8px;
+        border: 1px solid #444;
+      }
+      .menu-table .header {
+        background: #00796b;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+      }
+      .menu-table .cell {
+        text-align: left;
+      }
+      footer {
+        text-align: center;
+        padding: 10px;
+        background: #00796b;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>House of Ihsan</h1>
+    </header>
+    <div class="main-content">
+      <div class="sidebar">
+        <h2>Contact</h2>
+        <a
+          href="https://maps.app.goo.gl/ZmBPLdDAU48cNzicA"
+          target="_blank"
+          >6 Spring St, Princeton, NJ 08542</a
+        >
+        <a
+          href="http://instagram.com/houseofihsan"
+          target="_blank"
+          >Instagram</a
+        >
+      </div>
+      <div class="content">
+        <section>
+          <h2>Hours</h2>
+          <ul>
+            <li>Tue-Thur 8am-5pm</li>
+            <li>Fri-Sat 8am-8pm</li>
+            <li>Sun 8am-4pm</li>
+            <li>Mon Closed</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Menu</h2>
+          <div class="menu-table">
+            <div class="header">Category</div>
+            <div class="header">Item</div>
+            <div class="header">Price</div>
+            <!-- Espresso Drinks -->
+            <div class="cell" style="grid-row: span 8;">
+              Espresso Drinks
+            </div>
+            <div class="cell">Dbl. Espresso</div>
+            <div class="cell">$3.80</div>
+            <div class="cell">Machiatto</div>
+            <div class="cell">$4.35</div>
+            <div class="cell">Cappuccino</div>
+            <div class="cell">$4.45</div>
+            <div class="cell">Cortado</div>
+            <div class="cell">$4.35</div>
+            <div class="cell">Latte</div>
+            <div class="cell">$5.15 (md), $5.65 (lg)</div>
+            <div class="cell">Americano</div>
+            <div class="cell">$4.00 (md), $4.15 (lg)</div>
+            <div class="cell">Flat White</div>
+            <div class="cell">$4.60</div>
+            <div class="cell">Hot Chocolate</div>
+            <div class="cell">$4.50 (sm), $5.00 (lg)</div>
+            <!-- Pourover Coffee -->
+            <div class="cell" style="grid-row: span 3;">
+              Pourover Coffee
+            </div>
+            <div class="cell">Sumatra Solok Radjo</div>
+            <div class="cell">$4.50</div>
+            <div class="cell">Ethiopia Kossa Geshe</div>
+            <div class="cell">$4.65</div>
+            <div class="cell">Kenya Muriuki</div>
+            <div class="cell">$5.50</div>
+            <!-- Drip Coffee -->
+            <div class="cell">Drip Coffee</div>
+            <div class="cell">Drip Coffee</div>
+            <div class="cell">$3.50 (sm), $4.00 (md), $4.50 (lg)</div>
+            <!-- Tea -->
+            <div class="cell" style="grid-row: span 7;">Tea</div>
+            <div class="cell">Sencha (Green Tea)</div>
+            <div class="cell">$5.50</div>
+            <div class="cell">Dragonwell (Green Tea)</div>
+            <div class="cell">$5.75</div>
+            <div class="cell">Keemun (Black Tea)</div>
+            <div class="cell">$3.75</div>
+            <div class="cell">Peppermint (Herbal Tea)</div>
+            <div class="cell">$3.65</div>
+            <div class="cell">Chamomile (Herbal Tea)</div>
+            <div class="cell">$4.25</div>
+            <div class="cell">Earl Grey (Black Tea)</div>
+            <div class="cell">$3.65</div>
+            <div class="cell">Thai Iced Tea</div>
+            <div class="cell">$5.00</div>
+            <!-- Retail Beans -->
+            <div class="cell" style="grid-row: span 5;">Retail Beans</div>
+            <div class="cell">Espresso Reserve, 2lb bag</div>
+            <div class="cell">$60.00</div>
+            <div class="cell">Ethiopia Kossa Geshe, 10 oz Box</div>
+            <div class="cell">$29.00</div>
+            <div class="cell">Seekers Reserve, Guatemala Espresso 10 oz Box</div>
+            <div class="cell">$22.00</div>
+            <div class="cell">Solok Radjo Sumatra, Honey Process, 10 oz Box</div>
+            <div class="cell">$28.00</div>
+            <div class="cell">Kenya Muriuki, 10 oz Box</div>
+            <div class="cell">$39.00</div>
+          </div>
+        </section>
+        <section>
+          <h2>About</h2>
+          <p>
+            <em>
+              House of Ihsan is a boutique café in downtown Princeton, offering premium
+              coffee, artisanal teas, house-baked goods, and halal-certified treats.
+            </em>
+          </p>
+          <p>
+            Email:
+            <a href="mailto:houseofihsan@gmail.com">houseofihsan@gmail.com</a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
