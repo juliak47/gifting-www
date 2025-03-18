@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A Gift of Serenity: Craft Your Personalized Nature Soundscape</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* Dark mode styles */
+      body.dark-mode {
+        background-color: #333;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: #f4f4f4;
+      }
+      body.dark-mode header,
+      body.dark-mode main {
+        background: #444;
+      }
+      body.dark-mode header {
+        background-color: rgba(68, 68, 68, 0.9);
+        color: #f4f4f4;
+      }
+
+      body.dark-mode header h1,
+      body.dark-mode header p {
+        color: #f4f4f4;
+      }
+      /* Audio Visualizer Canvas */
+      #audioCanvas {
+        display: block;
+        margin: 20px auto;
+        background: #000;
+        border: 1px solid #ccc;
+      }
+      /* Timer Controls */
+      .timer-section {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .timer-section input[type="number"] {
+        padding: 5px;
+        font-size: 1em;
+        width: 100px;
+      }
+      .timer-section button,
+      .dark-mode-toggle {
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      .dark-mode-toggle {
+        background: #b96c57;
+        color: #fff;
+      }
+    </style>
+    <!-- AudioMotion Analyzer from CDN -->
+    <script src="https://unpkg.com/audiomotion-analyzer"></script>
+  </head>
+  <body>
+    <!-- Welcome Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h2>Welcome to Your Nature Soundscape</h2>
+        <p>
+          There’s a quiet place I discovered—a moment of calm where the gentle rustling of leaves and soft whispers of a stream brought me back to what matters. This is your invitation to pause, breathe, and reconnect with that inner peace.
+        </p>
+        <p>
+          Step in and let the natural sounds guide you on a journey of quiet reflection.
+        </p>
+      </div>
+      
+      
+    </div>
+
+    <header>
+      <h1>A Gift of Serenity</h1>
+      <p>Craft your personalized nature soundscape experience and escape into tranquility.</p>
+      <button class="dark-mode-toggle" id="darkModeToggle">Toggle Dark Mode</button>
+    </header>
+    
+    <main>
+      <!-- Single Horizontal Rectangle with 3 Columns -->
+    <div class="sound-row">
+      <!-- Forest Column -->
+      <div class="sound-split" id="sound-forest">
+        <img src="forest.jpg" alt="Forest" class="sound-bg">
+        <div class="sound-overlay">
+          <h3>Forest</h3>
+          <button onclick="toggleSound('forest')" class="sound-button">► Play</button>
+          <div class="gain-container">
+            <input 
+              type="range"
+              id="volume-forest"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+              onchange="setVolume('forest', this.value)"
+              class="gain-slider"
+            >
+          </div>
+        </div>
+        <audio id="audio-forest" loop>
+          <source src="forest.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- Ocean Column -->
+      <div class="sound-split" id="sound-ocean">
+        <img src="ocean.jpeg" alt="Ocean" class="sound-bg">
+        <div class="sound-overlay">
+          <h3>Ocean</h3>
+          <button onclick="toggleSound('ocean')" class="sound-button">► Play</button>
+          <div class="gain-container">
+            <input 
+              type="range"
+              id="volume-ocean"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+              onchange="setVolume('ocean', this.value)"
+              class="gain-slider"
+            >
+          </div>
+        </div>
+        <audio id="audio-ocean" loop>
+          <source src="ocean.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- Rain Column -->
+      <div class="sound-split" id="sound-rain">
+        <img src="rain.jpg" alt="Rain" class="sound-bg">
+        <div class="sound-overlay">
+          <h3>Rain</h3>
+          <button onclick="toggleSound('rain')" class="sound-button">► Play</button>
+          <div class="gain-container">
+            <input 
+              type="range"
+              id="volume-rain"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+              onchange="setVolume('rain', this.value)"
+              class="gain-slider"
+            >
+          </div>
+        </div>
+        <audio id="audio-rain" loop>
+          <source src="rain.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+      
+      <!-- Audio Visualizer Canvas -->
+      <canvas id="audioCanvas" width="800" height="200"></canvas>
+      
+      <!-- Stop All Controls -->
+      <div class="controls">
+        <button onclick="stopAll()" class="stop-all">Stop All Sounds</button>
+      </div>
+      
+      <!-- Meditation Timer Section -->
+      <div class="timer-section">
+        <h2>Meditation Timer</h2>
+        <input type="number" id="timerInput" placeholder="Enter mins" min="1">
+        <button id="startTimer">Start Timer</button>
+        <div id="timerDisplay"></div>
+      </div>
+    </main>
+    
+    <script src="scripts.js"></script>
+  </body>
+</html>
