@@ -93,8 +93,8 @@ body {
   }
   
   .dark-mode-toggle {
-    background: #b96c57;
-    color: #fff;
+    background: #b96c57 !important;
+    color: #fff !important;
   }
   
   /* Sound Blocks - Rectangle Container */
