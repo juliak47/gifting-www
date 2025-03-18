@@ -1,5 +1,7 @@
 // ============================================
-// Global Variables for Audio Context & Visualizer
+// Global Variables for Audio Context & Visualizer 
+// (reference: https://developer.mozilla.org/en-US/docs/Web/API/AudioContext , 
+// https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode)
 // ============================================
 var audioCtx, analyser, mixer, dataArray;
 
