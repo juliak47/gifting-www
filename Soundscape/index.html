@@ -4,8 +4,50 @@
     <title>A Gift of Serenity: Craft Your Personalized Nature Soundscape</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+      /* Dark mode styles */
+      body.dark-mode {
+        background: #333;
+        color: #f4f4f4;
+      }
+      body.dark-mode header,
+      body.dark-mode main {
+        background: #444;
+      }
+      /* Audio Visualizer Canvas */
+      #audioCanvas {
+        display: block;
+        margin: 20px auto;
+        background: #000;
+        border: 1px solid #ccc;
+      }
+      /* Timer Controls */
+      .timer-section {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .timer-section input[type="number"] {
+        padding: 5px;
+        font-size: 1em;
+        width: 100px;
+      }
+      .timer-section button,
+      .dark-mode-toggle {
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      .dark-mode-toggle {
+        background: #3498db;
+        color: #fff;
+      }
+    </style>
   </head>
   <body>
     <!-- Welcome Modal -->
@@ -19,6 +61,7 @@
     <header>
       <h1>A Gift of Serenity</h1>
       <p>Craft your personalized nature soundscape experience and escape into tranquility.</p>
+      <button class="dark-mode-toggle" id="darkModeToggle">Toggle Dark Mode</button>
     </header>
     
     <main>
@@ -59,10 +102,18 @@
       <div class="controls">
         <button onclick="stopAll()" class="stop-all">Stop All Sounds</button>
       </div>
+      
+      <!-- Meditation Timer Section -->
+      <div class="timer-section">
+        <h2>Meditation Timer</h2>
+        <input type="number" id="timerInput" placeholder="Enter mins" min="1">
+        <button id="startTimer">Start Timer</button>
+        <div id="timerDisplay"></div>
+      </div>
     </main>
     
     <script>
-      // Hide modal on click
+      // Hide welcome modal on click
       document.addEventListener("DOMContentLoaded", function() {
         const modal = document.getElementById("modal");
         modal.addEventListener("click", function() {
@@ -70,7 +121,12 @@
         });
       });
 
-      // Toggle play/pause for a given sound track
+      // Dark Mode Toggle
+      document.getElementById("darkModeToggle").addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+      });
+
+      //  Audio functions
       function toggleSound(soundId) {
         var audio = document.getElementById('audio-' + soundId);
         var container = document.getElementById('sound-' + soundId);
@@ -80,6 +136,16 @@
           audio.play();
           button.textContent = '❚❚ Pause';
           container.classList.add('playing');
+          // Initialize AudioContext for visualizer and attach this audio if not done
+          initAudioContext();
+          if (!audio.sourceNode) {
+            try {
+              audio.sourceNode = audioCtx.createMediaElementSource(audio);
+              audio.sourceNode.connect(analyser);
+            } catch (e) {
+              console.error("Error connecting audio source:", e);
+            }
+          }
         } else {
           audio.pause();
           button.textContent = '► Play';
@@ -87,13 +153,11 @@
         }
       }
       
-      // Set the volume for a given sound track
       function setVolume(soundId, volume) {
         var audio = document.getElementById('audio-' + soundId);
         audio.volume = volume;
       }
       
-      // Stop all sounds and reset buttons
       function stopAll() {
         var sounds = document.querySelectorAll('.sound');
         sounds.forEach(function(soundDiv) {
@@ -105,6 +169,67 @@
           button.textContent = '► Play';
           soundDiv.classList.remove('playing');
         });
+      }
+      
+      // Meditation Timer
+      let timerInterval;
+      document.getElementById('startTimer').addEventListener('click', function() {
+        const minutes = parseInt(document.getElementById('timerInput').value);
+        if (isNaN(minutes) || minutes <= 0) return;
+        let timeLeft = minutes * 60;
+        const display = document.getElementById('timerDisplay');
+        clearInterval(timerInterval);
+        timerInterval = setInterval(function() {
+          const m = Math.floor(timeLeft / 60);
+          const s = timeLeft % 60;
+          display.textContent = m + "m " + s + "s remaining";
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            stopAll();
+            display.textContent = "Time's up!";
+          }
+          timeLeft--;
+        }, 1000);
+      });
+      
+      // Audio Visualizer
+      let audioCtx, analyser, dataArray, animationId;
+      const canvas = document.getElementById('audioCanvas');
+      const canvasCtx = canvas.getContext('2d');
+      
+      // Initialize global AudioContext and analyser
+      function initAudioContext() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+        }
+        if (!analyser) {
+          analyser = audioCtx.createAnalyser();
+          analyser.fftSize = 512;
+          dataArray = new Uint8Array(analyser.frequencyBinCount);
+          // Connect the analyser to destination so sound remains audible
+          analyser.connect(audioCtx.destination);
+          drawVisualizer();
+        }
+      }
+      
+      // Draw the visualizer bars
+      function drawVisualizer() {
+        if (!analyser) return;
+        analyser.getByteFrequencyData(dataArray);
+        canvasCtx.fillStyle = "#000";
+        canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+        const barWidth = canvas.width / dataArray.length;
+        let x = 0;
+        for (let i = 0; i < dataArray.length; i++) {
+          let barHeight = dataArray[i] * 3; // Adjust multiplier for visibility
+          canvasCtx.fillStyle = "rgb(" + (barHeight + 100) + ",50,50)";
+          canvasCtx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+          x += barWidth + 1;
+        }
+        animationId = requestAnimationFrame(drawVisualizer);
       }
     </script>
   </body>
