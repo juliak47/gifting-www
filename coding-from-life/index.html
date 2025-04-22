@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Coding from Life</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="base.css" type="text/css" />
+	<style>
+		.canvas {
+			background: #b22222;
+		}
+		
+		.apple {
+			height: 70px;
+			width: 70px;
+			background: #7f0e0e;
+			border-radius: 45%;
+			position: absolute;
+			top: 10px;
+			right: 100px;
+		}
+
+		.vase {
+			height: 300px;
+			width: 200px;
+			/* border: 1px solid yellow; */
+			position: absolute;
+			top: 150px;
+			left: 250px;
+			border-right: 2px solid grey;
+			border-left: 2px solid grey;
+		}
+
+		.vase-bottom {
+			height: 85px;
+			width: 100%;
+			border: 2px solid grey;
+			position: absolute;
+			bottom: -40px;	
+			border-radius: 50%;
+			background: grey; opacity: 50%;
+		}
+		
+		.vase-top {
+			height: 85px;
+			width: 100%;
+			border: 2px solid grey;
+			position: absolute;
+			top: -40px;	
+			border-radius: 50%
+		}
+
+		.flower {
+			height: 400px;
+			width: 50px;
+			/* border: 1px solid pink; */
+			position: absolute;
+			transform: rotate(-15deg);
+			position: absolute;
+			left: 80px;
+			bottom: 10px;
+		}
+
+		.stem {
+			height: 100%;
+			width: 10px;
+			background: forestgreen;
+		}
+
+		.petals {
+			height: 50px;
+			width: 125px;
+			position: absolute;
+			top: -40px;
+			left: -31px;
+			background: yellow;
+			border-radius: 50%;
+		}
+
+		.petals.zero {
+			background: transparent;
+		}
+
+		.petals.one {
+			transform: rotate(-88deg);
+		}
+
+		.petals.two {
+			transform: rotate(-58deg);
+		}
+
+		.petals.three {
+			transform: rotate(8deg);
+		}
+
+		.petals.four {
+			transform: rotate(58deg);
+		}
+
+		.petals.five {
+			transform: rotate(88deg);
+		}
+
+		.flower2 {
+			height: 400px;
+			width: 50px;
+			/* border: 1px solid pink; */
+			position: absolute;
+			transform: rotate(23deg);
+			position: absolute;
+			left: 100px;
+			bottom: 0px;
+		}
+
+		.stem2 {
+			height: 100%;
+			width: 10px;
+			background: forestgreen;
+		}
+
+		.petals2 {
+			height: 50px;
+			width: 125px;
+			position: absolute;
+			top: -40px;
+			left: -32px;
+			background: yellow;
+			border-radius: 50%;
+		}
+
+		.petals2.zero {
+			background: transparent;
+		}
+
+		.petals2.one {
+			transform: rotate(-88deg);
+			bottom: -28px;
+		}
+
+		.petals2.two {
+			transform: rotate(-48deg);
+			bottom: -28px;
+		}
+
+		.petals2.three {
+			transform: rotate(-18deg);
+			bottom: -28px;
+		}
+
+		.petals2.four {
+			transform: rotate(28deg);
+			bottom: -28px;
+		}
+
+		.petals2.five {
+			transform: rotate(78deg);
+			bottom: -28px;
+		}
+
+		.ruler {
+			background: grey;
+			height: 380px;
+			width: 30px;
+			position: absolute;
+			bottom: 20px;
+			right: 200px;
+			transform: rotate(20deg) skew(-30deg);
+		}
+		.plate {
+			height: 40px;
+			width: 150px;
+			border-radius: 50%;
+			background-color: white;
+			position: absolute;
+			bottom: 10px;
+			right: 150px;
+		}
+		.cake {
+			width:0px;
+			height: 0px;
+			border-top: 40px solid transparent;
+			border-bottom: 40px solid transparent;
+			border-left: 128px solid pink;
+			transform: rotate(160deg);
+			position: absolute;
+			bottom: 0px;
+			right: 20px;
+		}
+
+		.candle {
+			background: white;
+			height: 50px;
+			width: 10px;
+			position: absolute;
+			bottom: 61px;
+			right: 60px;
+		}
+		
+		.flame {
+			background: yellow;
+			height: 30px;
+			width: 10px;
+			border-radius: 50%;
+			animation:  0.75s linear 1s infinite alternate-reverse flicker;
+			position: absolute;
+			bottom: 50px;
+			right: 2px;
+		}
+		@keyframes flicker {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(-25deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+  <div class="canvas">
+
+		<div class="apple"></div>
+		<div class="vase">
+			<div class="vase-bottom"></div>
+			<div class="vase-top"></div>
+			<div class="flower">
+				<div class="stem"></div>
+				<div class="petals zero">
+					<div class="petals one"></div>
+					<div class="petals two"></div>
+					<div class="petals three"></div>
+					<div class="petals four"></div>
+					<div class="petals five"></div>
+				</div>
+			</div>
+			<div class="flower2">
+				<div class="stem2"></div>
+				<div class="petals2 zero">
+					<div class="petals2 one"></div>
+					<div class="petals2 two"></div>
+					<div class="petals2 three"></div>
+					<div class="petals2 four"></div>
+					<div class="petals2 five"></div>
+				</div>
+			</div>
+		</div>
+		<div class="ruler"></div>
+		<div class="plate">
+			<div class="cake"></div>
+			<div class="candle">
+				<div class="flame"></div>
+			</div>
+		</div>
+
+  </div>
+
+</body>
+
+</html>
