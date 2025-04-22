@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Haunted Haiku 💀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <audio id="spooky-bg">
+    <source src="spooky.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <header>
+    <h1 class="title">Haunted Haiku 💀</h1>
+    <em class="subtitle">ホーンテッド俳句</em>
+  </header>
+
+  <button id="play-audio" class="audio-btn">🔊 Play Audio</button>
+
+
+  <form id="haiku-form">
+    <label for="l1">Line 1 (5):</label>
+    <input type="text" id="l1" placeholder="5 syllables…" required />
+
+    <label for="l2">Line 2 (7):</label>
+    <input type="text" id="l2" placeholder="7 syllables…" required />
+
+    <label for="l3">Line 3 (5):</label>
+    <input type="text" id="l3" placeholder="5 syllables…" required />
+
+    <button type="submit">Submit Haiku</button>
+  </form>
+
+  <div id="result" class="hidden"></div>
+
+  <section id="archive">
+    <h2>Archive</h2>
+    <div id="entries"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

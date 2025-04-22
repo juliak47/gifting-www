@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+html, body, button, input, label, textarea, h1, h2, h3, h4, h5, h6, p, em  {
+  font-family: 'Creepster', cursive !important;
+}
+
+.subtitle {
+  font-family: 'Kokoro', cursive !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: black url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">\
+<rect width="200" height="200" fill="%23000000"/><circle cx="100" cy="100" r="80" fill="rgba(51,0,51,0.2)"/>\
+</svg>') center/cover no-repeat;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: 'Creepster', cursive;
+  font-size: 3rem;
+  /* initial color stays red */
+  color: #cc0000;
+  text-shadow: 0 0 8px #550000;
+  animation: flicker 3s infinite;
+}
+
+.subtitle {
+  display: block;
+  font-size: 1.2rem;
+  color: #880000;
+  margin-top: -0.5rem;
+  opacity: 0.8;
+}
+
+/* Flicker now alternates between red and violet */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+    color: #cc0000;
+    text-shadow: 0 0 8px #550000;
+  }
+  20%, 60% {
+    opacity: 0.4;
+    color: #cc00ff;
+    text-shadow: 0 0 8px #550055;
+  }
+  40%, 80% {
+    opacity: 1;
+    color: #cc0000;
+    text-shadow: 0 0 8px #550000;
+  }
+}
+
+form, #result, #archive {
+  width: 400px;
+  max-width: 90vw;
+}
+
+label {
+  display: block;
+  margin: 1rem 0 0.25rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  background: #220022;
+  border: 1px solid #550055;
+  border-radius: 4px;
+  color: #fff;
+}
+
+input::placeholder {
+  color: #aa88aa;
+}
+
+form button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1.5rem;
+  background: #550000;
+  border: 1px solid #880000;
+  border-radius: 4px;
+  color: #f0f0f0;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+form button:hover {
+  background: #880000;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  width: 100%;
+  background: #220011;
+  border: 1px solid #440033;
+  padding: 1rem;
+  border-radius: 6px;
+  position: relative;
+  margin-top: 1rem;
+  box-shadow: 0 0 12px rgba(136,0,0,0.7);
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+.card::after {
+  content: "💀";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.4rem;
+  color: #880000;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.copy-btn {
+  background: #880000;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #aa0000;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+.copy-btn:hover {
+  background: #aa0000;
+}
+
+#again {
+  background: #222222;
+  color: #ddd;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+#archive h2 {
+  margin-bottom: 0.5rem;
+  color: #555;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.25rem;
+}
+
+.audio-btn {
+  margin: 1rem 0;
+  padding: 0.6rem 1.2rem;
+  background: #550000;
+  border: 1px solid #880000;
+  border-radius: 4px;
+  color: #f0f0f0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+.audio-btn:hover {
+  background: #880000;
+}
+
