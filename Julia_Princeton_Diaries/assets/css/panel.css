@@ -1,0 +1,18 @@
+.k-panel-menu .k-activation {
+    display: none !important;
+}
+
+/* html {
+    filter: grayscale(100%);
+} */
+
+.k-item-figure {
+    background: rgb(246, 252, 255) !important;
+}
+.k-activation-button {
+    display: none !important;
+}
+
+.d4l-static-site-generator {
+    filter: invert(100%) !important;
+}
